@@ -1,0 +1,141 @@
+.loading {
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.2rem;
+    color: #666;
+    display: none;
+}
+
+.error-message {
+    color: #dc3545;
+    padding: 1rem;
+    text-align: center;
+    display: none;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --hover-color: #2980b9;
+    --background-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: var(--background-gradient);
+    min-height: 100vh;
+}
+
+ul li {
+    list-style: none;   
+}
+
+.consultar-header {
+    background: var(--primary-color);
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.search-container {
+    max-width: 600px;
+    margin: 1rem auto;
+    display: flex;
+    gap: 0.5rem;
+}
+
+#searchInput {
+    flex: 1;
+    padding: 0.8rem;
+    border: 2px solid var(--secondary-color);
+    border-radius: 25px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+#searchInput:focus {
+    outline: none;
+    box-shadow: 0 0 10px var(--secondary-color);
+}
+
+#searchButton {
+    background: var(--secondary-color);
+    border: none;
+    padding: 0 1.5rem;
+    border-radius: 25px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#searchButton:hover {
+    background: var(--hover-color);
+    transform: scale(1.05);
+}
+
+.produtos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.produto-card {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.produto-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.produto-card h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+}
+
+.produto-detail {
+    margin: 0.5rem 0;
+    color: #666;
+}
+
+.consultar-footer {
+    background: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+    margin-top: auto;
+}
+
+@media (max-width: 768px) {
+    .produtos-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.produto-card {
+    animation: fadeIn 0.5s ease-out forwards;
+    opacity: 0;
+}

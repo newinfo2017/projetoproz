@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR"> 
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Formulário de Cadastro</title>
+        <link rel="stylesheet" href="../static/css/style.css">
+        <link rel="stylesheet" href="../static/css/estilo.css">
+    </head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Início</a></li>
+                <li><a href="../sobre">Sobre</a></li>
+                <li><a href="../servicos">Serviços</a></li>
+                <li><a href="../produto">Cadastro Produtos</a></li>
+                <li><a href="../consultar_produtos">Consultar Produtos</a></li> <!-- Corrigido o link -->
+                <li><a href="../contato">Cadastro Clientes</a></li>
+            </ul>
+        </nav>
+    </header>
+    <form id="meuFormulario" action="/contato" method="post" class="formulario-cadastro" onsubmit="return validarFormulario(event)">
+    <fieldset>
+    <legend>Dados Pessoais Cliente</legend>
+    <br />
+    <div class="campo-form">
+        <label for="nome">Nome Completo:</label>
+        <input type="text" id="nome" name="nome" required placeholder="Digite seu nome">
+    </div>
+    <div class="campo-form">
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required>
+    </div>
+    <div class="campo-form">
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required minlength="6" maxlength="20">
+    </div>
+    <div class="campo-form">
+        <label for="confirmar_senha">Confirmar Senha:</label>
+        <input type="password" id="confirmar_senha" name="confirmar_senha" required>
+    </div>
+    <div class="campo-form">
+        <label for="data_nascimento">Data de Nascimento:</label>
+        <input type="date" id="data_nascimento" name="data_nascimento" required>
+    </div>
+    <div class="campo-form">
+        <label for="telefone">Telefone:</label>
+        <input type="tel" id="telefone" name="telefone" placeholder="(99)99999-9999" maxlength="14" required pattern="\([0-9]{2}\)[0-9]{5}-[0-9]{4}">
+    </div>
+
+<!-- Campos de CEP e Endereço -->
+<div class="cep-container">
+    <div class="form-group">
+        <label>CEP:</label>
+        <input type="text" 
+               id="cep" 
+               placeholder="00000-000"
+               maxlength="9"
+               autocomplete="postal-code">
+        <span class="error" id="cepError"></span>
+        <div id="cepLoading" class="loading" style="display: none;">Buscando...</div>
+    </div>
+
+    <div class="address-fields">
+        <div class="form-group">
+            <label>Logradouro:</label>
+            <input type="text" id="rua" autocomplete="address-line1">
+        </div>
+
+        <div class="form-group">
+            <label>Nº:</label>
+            <input type="text" id="nr" autocomplete="address-line1">
+        </div>
+
+        <div class="form-group">
+            <label>Bairro:</label>
+            <input type="text" id="bairro" autocomplete="address-line2">
+        </div>
+
+        <div class="form-group">
+            <label>Cidade:</label>
+            <input type="text" id="cidade" autocomplete="address-level2">
+        </div>
+
+        <div class="form-group">
+            <label>UF:</label>
+            <input type="text" id="uf" autocomplete="address-level1" maxlength="2">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="estado">Estado:</label>
+        <select id="estado" name="estado" autocomplete="address-level2">
+            <option value="SP">São Paulo</option>
+            <option value="MG">Minas Gerais</option>
+            <option value="RJ">Rio de Janeiro</option>
+            <option value="RS">Rio Grande do Sul</option>
+            <option value="PR">Paraná</option>
+            <option value="BA">Bahia</option>
+            <option value="PE">Pernambuco</option>
+            <option value="CE">Ceará</option>
+            <option value="SC">Santa Catarina</option>
+            <option value="GO">Goiás</option>
+            <option value="DF">Distrito Federal</option>
+            <option value="MT">Mato Grosso</option>
+            <option value="MS">Mato Grosso do Sul</option>
+            <option value="ES">Espírito Santo</option>
+            <option value="AL">Alagoas</option>
+            <option value="MA">Maranhão</option>
+            <option value="PI">Piauí</option>
+            <option value="PB">Paraíba</option>
+            <option value="RN">Rio Grande do Norte</option>
+            <option value="SE">Sergipe</option>
+            <option value="TO">Tocantins</option>
+            <option value="AC">Acre</option>
+            <option value="AP">Amapá</option>
+            <option value="PA">Pará</option>
+            <option value="AM">Amazonas</option>
+            <option value="RR">Roraima</option>
+            <option value="RO">Rondônia</option>
+        </select>
+    </div>
+    </fieldset>
+</div>
+<!-- Campos de CEP e Endereço - Final -->
+
+    <fieldset>
+        <legend>Informações Adicionais</legend>
+        <div class="campo-form">
+        <label>Gênero:</label>
+            <div class="grupo-radio">
+                <input type="radio" id="masculino" name="genero" value="M">
+                <label for="masculino">Masculino</label>
+                <input type="radio" id="feminino" name="genero" value="F">
+                <label for="feminino">Feminino</label>
+            </div>
+        </div>
+        <div class="campo-form">
+            <label for="mensagem">Mensagem:</label>
+            <textarea id="mensagem" name="mensagem" rows="4" placeholder="Digite sua mensagem"></textarea>
+        </div>
+
+        <div class="campo-form">
+            <label for="termos">
+                <input type="checkbox" id="termos" name="termos" required>
+                Aceito os termos de uso
+            </label>
+        </div>
+
+        <div class="campo-form">
+            <label for="arquivo">Anexar Documento:</label>
+            <input type="file" id="arquivo" name="arquivo" accept=".pdf,.jpg,.png,.csv,.xlsx">
+        </div>
+    </fieldset>
+    <div class="acoes-form">
+        <button type="submit">Enviar</button>  <button type="reset">Limpar</button>
+    </div>
+</form>
+<footer class="consultar-footer">
+    <p>© 2025 Sistema de Produtos - Rafael Francisco</p>
+</footer>
+<script src="/js/script.js"></script>
+</body>
+</html>

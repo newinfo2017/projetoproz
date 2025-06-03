@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos</title>
+    <link rel="stylesheet" href="../static/css/style.css"> <!-- Nav e footer e CEP -->
+    <link rel="stylesheet" href="../static/css/style1.css"> <!-- formProduto -->
+    <link rel="stylesheet" href="../static/css/estilo.css"> <!-- formulario-cadastro -->
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Início</a></li>
+                <li><a href="../sobre">Sobre</a></li>
+                <li><a href="../servicos">Serviços</a></li>
+                <li><a href="../produto">Cadastro Produtos</a></li>
+                <li><a href="../consultar_produtos">Consultar Produtos</a></li> <!-- Corrigido o link -->
+                <li><a href="../contato">Cadastro Clientes</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <form id="formProduto" action="/produto" method="post" class="formulario-produto" onsubmit="return validarFormulario(event)">
+        <fieldset>
+            <legend>Cadastro de Produto</legend>
+            <br />
+            <div class="form-group">
+                <label for="produto">Nome Produto:</label>
+                <input type="text" id="produto" name="produto" required>
+                <div class="error-message" id="errorProduto"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="descricao">Descrição:</label>
+                <textarea id="descricao" name="descricao" required></textarea>
+                <div class="error-message" id="errorDescricao"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="preco">Preço:</label>
+                <input type="number" id="preco" name="preco" required>
+                <div class="error-message" id="errorPreco"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="cor">Cor:</label>
+                <select id="cor" name="cor" required>
+                    <option value="">Selecione</option>
+                    <option>Vermelho</option>
+                    <option>Azul</option>
+                    <option>Verde</option>
+                    <option>Prata</option>
+                    <option>Preto</option>
+                </select>
+                <div class="error-message" id="errorCor"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="tamanho">Tamanho:</label>
+                <select id="tamanho" name="tamanho">
+                    <option value="">Nenhum</option>
+                    <option>P</option>
+                    <option>M</option>
+                    <option>G</option>
+                    <option>6"</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="marca">Marca:</label>
+                <input type="text" id="marca" name="marca" required>
+                <div class="error-message" id="errorMarca"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="fabricante">Fabricante:</label>
+                <input type="text" id="fabricante" name="fabricante" required>
+                <div class="error-message" id="errorFabricante"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="categoria">Categoria:</label>
+                <select id="categoria" name="categoria" required>
+                    <option value="">Selecione</option>
+                    <option>Eletrônicos</option>
+                    <option>Vestuário</option>
+                    <option>Alimentos</option>
+                </select>
+                <div class="error-message" id="errorCategoria"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="especificacoes">Especificações:</label>
+                <textarea id="especificacoes" name="especificacoes"></textarea>
+            </div>
+
+            <div class="form-buttons">
+                <button type="submit">Adicionar Produto</button>
+                <button type="reset">Limpar Campos</button>
+            </div>
+        </form>
+    </main>
+        </fieldset>
+    <footer>
+        <p>&copy; 2025 Sistema de Produtos - Rafael Francisco</p>
+    </footer>
+    <script src="js/script1.js"></script>
+</body>
+</html>

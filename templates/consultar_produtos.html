@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Produtos</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/consulta.css">
+    <link rel="stylesheet" href="../static/css/tabela-produtos.css">
+</head>
+<body>
+    <header class="consultar-header">
+        <nav>
+            <ul>
+                <li><a href="/">Início</a></li>
+                <li><a href="../sobre">Sobre</a></li>
+                <li><a href="../servicos">Serviços</a></li>
+                <li><a href="../produto">Cadastro Produtos</a></li>
+                <li><a href="../consultar_produtos">Consultar Produtos</a></li> <!-- Corrigido o link -->
+                <li><a href="../contato">Cadastro Clientes</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1>Produtos Cadastrados</h1>
+    <table class="tabela-produtos" border="1">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Descrição</th>
+          <th>Preço</th>
+          <th>Categoria</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for p in produtos %}
+        <tr>
+          <td>{{ p[0] }}</td>
+          <td>{{ p[1] }}</td>
+          <td>R$ {{ "%.2f"|format(p[2]) }}</td>
+          <td>{{ p[3] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <footer>
+        <p>© 2025 Sistema de Produtos - Rafael Francisco</p>
+    </footer>
+
+    <script src="js/consulta.js"></script>
+</body>
+</html>
